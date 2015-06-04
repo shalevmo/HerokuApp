@@ -38,14 +38,14 @@ app
     })
 
     .get('/add', function(request, response) {
-        var toAdd = request.params.toadd;
-        if (toAdd != undefined) {
+        var item = request.param("item");
+        if (item != undefined) {
             MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
                 if (err) {
                     return console.dir(err);
                 }
                 var collection = db.collection('restaurants');
-                collection.insert(request.params.toadd);
+                collection.insert(item);
                 response.write("added");
             });
         } else {
