@@ -43,20 +43,15 @@ app
             MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
                 if (err) {
                     return console.dir(err);
-                }
+                };
                 var collection = db.collection('restaurants');
                 collection.insert(item);
                 response.write("added");
             });
         } else {
             response.write("empty");
-        }
+        };
         response.end();
-
-    })
-
-    .get('/dbstat', function(request, response) {
-
     })
 
     .get('/:name',function(request, response) {
