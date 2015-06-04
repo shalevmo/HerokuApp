@@ -61,10 +61,11 @@ app
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
-            console.log(gid);
+            //console.dir("shalevshalev " + gid);
             collection.remove({_id: new mongodb.ObjectID(gid)});
         });
-        response.redirect("/?removed=true");
+        response.write(gid);
+        //response.redirect("/?removed=true");
         response.end();
 
     })
