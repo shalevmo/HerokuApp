@@ -38,6 +38,10 @@ body {
     font-family: monospace;
     color: black;
 }
+.list-item {
+    background-color: white;
+    box-shadow: #CFD8DC;
+}
 
 /* Make Footer Sticky */
 #footer_container {
