@@ -4,10 +4,7 @@ var fs = require('fs');
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
 var dbstat = "error";
-
-// Connect to the db
-// Retrieve
-var MongoClient = require('mongodb').MongoClient;
+var dbitems = "";
 
 // Connect to the db
 MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
@@ -17,9 +14,9 @@ MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaur
 
     dbstat = "connected";
     //db.createCollection('restaurants', function(err, collection) {});
-    //var car = {name:"Shelis", location:Netivot, Type:"Halavit"};
-    //db.restaurants.insert(car);
-    //var dbitems = db.restaurants.find();
+    var car = {name:"Shelis", location:Netivot, Type:"Halavit"};
+    db.restaurants.insert(car);
+    dbitems = db.restaurants.find();
 
 });
 
@@ -35,7 +32,7 @@ app
     })
 
     .get('/dbstat', function(request, response) {
-        response.write("<html><body>" + dbstat +"<br><br>" + "dbitems" + "</body></html>");
+        response.write("<html><body>" + dbstat +"<br><br>" + dbitems + "</body></html>");
         response.end();
     })
 
