@@ -20,7 +20,7 @@
             callback(xmlHttp.responseText);
         }
 
-        function makeHttpObject() {
+/*        function makeHttpObject() {
             try {return new XMLHttpRequest();}
             catch (error) {}
             try {return new ActiveXObject("Msxml2.XMLHTTP");}
@@ -29,7 +29,7 @@
             catch (error) {}
 
             throw new Error("Could not create HTTP request object.");
-        }
+        }*/
     </script>
 </head>
 <body>
@@ -47,14 +47,14 @@
         <img src="Koala.jpg" width="300px" height="220px">
         <br><br>
         <script>
-            /*httpGet("https://appsbyme52.herokuapp.com/restaurants", function(response) {
+            httpGet("/restaurants", function(response) {
                 console.log("shalev" + response);
                 write(response);
-            });*/
-            var request = makeHttpObject();
+            });
+/*            var request = makeHttpObject();
             request.open("GET", "/restaurant", false);
             request.send(null);
-            print(request.responseText);
+            print(request.responseText);*/
         </script>
 <!--        <img src="./Koala.jpg">
         <img src="./public/Koala.jpg">-->
