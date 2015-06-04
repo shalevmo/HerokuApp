@@ -38,8 +38,7 @@ body {
     font-family: monospace;
     color: black;
 }
-
-#list-item {
+.list-item {
     background-color: white;
     box-shadow: #CFD8DC;
 }
