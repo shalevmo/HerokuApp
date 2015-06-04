@@ -63,11 +63,10 @@ app
             var collection = db.collection('restaurants');
             //console.dir("shalevshalev " + gid);
             collection.remove({_id: new mongodb.ObjectID(gid)});
+            response.write(gid);
+            //response.redirect("/?removed=true");
+            response.end();
         });
-        response.write(gid);
-        //response.redirect("/?removed=true");
-        response.end();
-
     })
 
     .get('/restaurants',function(request, response) {
