@@ -53,9 +53,9 @@
                 restaurants = JSON.parse(response);
             });
             restaurants.forEach(function(entry) {
-                document.write("<li><h1>" + entry.name + "</h1>");
-                document.write("<h2>" + entry.name + "</h2>");
-                document.write("<h3>" + entry.name + "</h3></li>");
+                document.write("<li><h2>" + entry.name + "</h2>");
+                document.write("<h2>" + entry.location + "</h2>");
+                document.write("<h2>" + entry.type + "</h2></li>");
             });
 
         </script>
