@@ -44,11 +44,11 @@ app
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
                 return console.dir(err);
-            };
+            }
             var collection = db.collection('restaurants');
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
-            response.write("added");
+            response.write("added");//
         });
         response.end();
     })
