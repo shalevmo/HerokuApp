@@ -54,11 +54,11 @@
                 restaurants = JSON.parse(response);
             });
             restaurants.forEach(function(entry) {
-                document.write("<hr><h2>" + entry.name + "</h2>");
+                document.write("<div id=\"list-item\"><h2>" + entry.name + "</h2>");
                 document.write("<h2>" + entry.location + "</h2>");
-                document.write("<h2>" + entry.type + "</h2>");
+                document.write("<h2>" + entry.type + "</h2></div>");
             });
-            document.write("<hr>");
+            document.write("");
 
         </script>
 <!--        <img src="./Koala.jpg">

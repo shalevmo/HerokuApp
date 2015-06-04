@@ -39,6 +39,11 @@ body {
     color: black;
 }
 
+#list-item {
+    background-color: white;
+    box-shadow: #CFD8DC;
+}
+
 /* Make Footer Sticky */
 #footer_container {
     background: #607D8B;
