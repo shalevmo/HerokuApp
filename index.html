@@ -38,19 +38,13 @@
 <div id="container">
     <div id="content" dir="rtl">
         <br><br>
-<!--
-        <img src="Koala.jpg" width="300px" height="220px">
--->
-        <br><br>
         <script>
             var restaurants = "";
             httpGet("/restaurants", function(response) {
                 console.log(response);
                 restaurants = JSON.parse(response);
                 restaurants.forEach(function(entry) {
-                    document.write("<div class=\"list-item\"><h2>" + entry.name + "</h2>");
-                    document.write("<h2>" + entry.location + "</h2>");
-                    document.write("<h2>" + entry.type + "</h2></div>");
+                    document.getElementById("content").innerHTML("<div class=\"list-item\"><h2>" + entry.name + "</h2><h2>" + entry.location + "</h2><h2>" + entry.type + "</h2></div>");
                 });
             });
         </script>
