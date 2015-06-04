@@ -55,9 +55,7 @@ app
 
     .get('/remove', function(request, response) {
         var gid = request.param("id");
-        response.write(gid);
-        response.end();
-/*        MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
+        MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             db.collection('restaurants', {}, function(err, contacts) {
                 contacts.remove({_id: ObjectID(gid)}, function(err, result) {
                     if (err) {
@@ -65,11 +63,11 @@ app
                     }
                     console.log(result);
                     db.close();
-                    response.write("done");
+                    response.redirect("/");
                     response.end();
                 });
             });
-        });*/
+        });
     })
 
     .get('/restaurants',function(request, response) {
