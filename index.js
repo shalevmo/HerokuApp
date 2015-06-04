@@ -14,9 +14,9 @@ MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaur
 
     dbstat = "connected";
     //db.createCollection('restaurants', function(err, collection) {});
-    var car = {name:"Shelis", location:"Netivot", Type:"Halavit"};
+    //var car = {name:"Shelis", location:"Netivot", Type:"Halavit"};
     var collection = db.collection('restaurants');
-    collection.insert(car);
+    //collection.insert(car);
     collection.find().toArray(function(err, items) {dbitems = JSON.stringify(items);});
 
 });
@@ -35,6 +35,19 @@ app
     .get('/dbstat', function(request, response) {
         response.write("<html><body>" + dbstat +"<br><br>" + dbitems + "</body></html>");
         response.end();
+    })
+
+    .get('/add', function(request, response) {
+        var collection = db.collection('restaurants');
+        var toAdd = request.params.toadd;
+        if (toAdd != undefined) {
+            collection.insert(request.params.toadd);
+            response.write("added");
+        } else {
+            response.write("empty");
+        }
+        response.end();
+
     })
 
     .get('/dbstat', function(request, response) {
