@@ -47,14 +47,12 @@
             httpGet("/restaurants", function(response) {
                 console.log(response);
                 restaurants = JSON.parse(response);
+                restaurants.forEach(function(entry) {
+                    document.write("<div class=\"list-item\"><h2>" + entry.name + "</h2>");
+                    document.write("<h2>" + entry.location + "</h2>");
+                    document.write("<h2>" + entry.type + "</h2></div>");
+                });
             });
-            restaurants.forEach(function(entry) {
-                document.write("<div class=\"list-item\"><h2>" + entry.name + "</h2>");
-                document.write("<h2>" + entry.location + "</h2>");
-                document.write("<h2>" + entry.type + "</h2></div>");
-            });
-            document.write("");
-
         </script>
 <!--        <img src="./Koala.jpg">
         <img src="./public/Koala.jpg">-->
