@@ -47,14 +47,17 @@
         <img src="Koala.jpg" width="300px" height="220px">
         <br><br>
         <script>
+            var restaurants = "";
             httpGet("/restaurants", function(response) {
-                console.log("shalev" + response);
-                document.write(response);
+                console.log(response);
+                restaurants = JSON.parse(response);
             });
-/*            var request = makeHttpObject();
-            request.open("GET", "/restaurant", false);
-            request.send(null);
-            print(request.responseText);*/
+            restaurants.forEach(function(entry) {
+                document.write("<li><h1>" + entry.name + "</h1>");
+                document.write("<h2>" + entry.name + "</h2>");
+                document.write("<h3>" + entry.name + "</h3></li>");
+            });
+
         </script>
 <!--        <img src="./Koala.jpg">
         <img src="./public/Koala.jpg">-->
