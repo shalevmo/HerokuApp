@@ -28,7 +28,7 @@ body {
 
 /* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
 #container {
-    margin: 0 auto;
+    //margin: 0 auto;
     overflow: auto;
     padding: 80px 0;
     width: 940px;
@@ -42,7 +42,7 @@ body {
     background-color: white;
     box-shadow: 5px 5px 5px #888888;
     padding: 1px 15px 1px 15px;
-    margin: 15px 15px 15px 15px;
+    margin-bottom: 15px;
 }
 
 /* Make Footer Sticky */
