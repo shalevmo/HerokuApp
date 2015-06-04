@@ -30,6 +30,13 @@ app
         response.end();
     })
 
+    .get('/add-item', function(request, response) {
+        fs.readFile('./add-item.html', function(err, contents) {
+            response.write(contents);
+            response.end();
+        });
+    })
+
     .get('/add', function(request, response) {
         var gname = request.param("name");
         var glocation = request.param("location");
@@ -55,11 +62,6 @@ app
             collection.find().toArray(function(err, items) {restaurants = JSON.stringify(items);});
         });
         response.write(restaurants);
-        response.end();
-    })
-
-    .get('/:name',function(request, response) {
-        response.write("Hello " + request.params.name);
         response.end();
     });
 

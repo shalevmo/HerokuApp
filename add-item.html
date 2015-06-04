@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <script>
+        var options = decodeURIComponent(window.location.search.slice(1))
+                .split('&')
+                .reduce(function _reduce (/*Object*/ a, /*String*/ b) {
+                    b = b.split('=');
+                    a[b[0]] = b[1];
+                    return a;
+                }, {});
+
+        function httpGet(theUrl, callback)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange=function()
+            {
+                if (xmlHttp.readyState==4 && xmlHttp.status==200)
+                {
+                    callback(xmlHttp.responseText);
+                }
+            };
+            xmlHttp.open( "GET", theUrl, true );
+            xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
+        }
+    </script>
+</head>
+<body>
+
+<div id="header_container">
+    <div id="header">
+        My Website
+    </div>
+</div>
+
+<div id="container">
+    <div id="content" dir="rtl">
+        <form action="add" method="GET">
+            Restaurant name:<br>
+            <input type="text" name="name" value="" >
+            <br>
+            Type:<br>
+            <input type="text" name="type" value="">
+            <br>
+            Location:<br>
+            <input type="text" name="location" value="">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<div id="footer_container">
+    <div id="footer">
+        (C) Built By Shalev Moyal
+    </div>
+</div>
+
+</body>
+</html>
