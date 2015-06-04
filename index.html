@@ -15,6 +15,7 @@
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open( "GET", theUrl, false );
             xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
             callback(xmlHttp.responseText);
         }
     </script>
@@ -34,7 +35,8 @@
         <img src="Koala.jpg" width="300px" height="220px">
         <br><br>
         <script>
-            httpGet("http://appsbyme52.herokuapp.com/restaurants", function(response) {
+            httpGet("https://appsbyme52.herokuapp.com/restaurants", function(response) {
+                console.log("shalev" + response);
                 write(response);
             });
         </script>
