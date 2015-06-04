@@ -40,8 +40,8 @@ body {
 }
 .list-item {
     background-color: white;
-    box-shadow: 10px 10px 5px #888888;
-    padding: 15px 15px 15px 15px;
+    box-shadow: 5px 5px 5px #888888;
+    padding: 1px 15px 1px 15px;
     margin: 15px 15px 15px 15px;
 }
 
