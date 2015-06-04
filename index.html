@@ -35,10 +35,14 @@
         <img src="Koala.jpg" width="300px" height="220px">
         <br><br>
         <script>
-            httpGet("https://appsbyme52.herokuapp.com/restaurants", function(response) {
+            /*httpGet("https://appsbyme52.herokuapp.com/restaurants", function(response) {
                 console.log("shalev" + response);
                 write(response);
-            });
+            });*/
+            var request = makeHttpObject();
+            request.open("GET", "/restaurant", false);
+            request.send(null);
+            print(request.responseText);
         </script>
 <!--        <img src="./Koala.jpg">
         <img src="./public/Koala.jpg">-->
