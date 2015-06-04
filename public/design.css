@@ -40,7 +40,8 @@ body {
 }
 .list-item {
     background-color: white;
-    box-shadow: #CFD8DC;
+    box-shadow: #444444;
+    padding: 15px 15px 15px 15px;
 }
 
 /* Make Footer Sticky */
