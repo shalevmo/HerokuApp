@@ -44,7 +44,7 @@
                 console.log(response);
                 restaurants = JSON.parse(response);
                 restaurants.forEach(function(entry) {
-                    document.getElementById("content").innerHTML("<div class=\"list-item\"><h2>" + entry.name + "</h2><h2>" + entry.location + "</h2><h2>" + entry.type + "</h2></div>");
+                    document.getElementById("content").innerHTML = "<div class=\"list-item\"><h2>" + entry.name + "</h2><h2>" + entry.location + "</h2><h2>" + entry.type + "</h2></div>";
                 });
             });
         </script>
