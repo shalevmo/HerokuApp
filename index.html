@@ -44,7 +44,10 @@
                 console.log(response);
                 restaurants = JSON.parse(response);
                 restaurants.forEach(function(entry) {
-                    document.getElementById("content").innerHTML += "<div class=\"list-item\"><h2>" + entry.name + "</h2><h2>" + entry.location + "</h2><h2>" + entry.type + "</h2>" + "<form method=\"GET\" action=\"/remove?id=" + entry._id + "\"><input type=\"submit\" value=\"Remove\"></form><br>" + "</div>";
+                    document.getElementById("content").innerHTML += "<div class=\"list-item\"><h2>" + entry.name + "</h2><h2>" + entry.location + "</h2><h2>" + entry.type + "</h2>";
+                    document.getElementById("content").innerHTML += "<form method=\"GET\" action=\"/remove?id=" + entry._id + "\"><input type=\"hidden\" name=\"id\" value=\"" + entry._id + "\" + >";
+                    document.getElementById("content").innerHTML += "<input type=\"submit\" value=\"Remove\"></form><br>" + "</div>";
+
                 });
             });
         </script>
