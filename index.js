@@ -4,21 +4,13 @@ var fs = require('fs');
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
 var dbstat = "error";
-var dbitems = "";
 
 // Connect to the db
 MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
     if(err) {
         return console.dir(err);
     }
-
     dbstat = "connected";
-    //db.createCollection('restaurants', function(err, collection) {});
-    //var car = {name:"Shelis", location:"Netivot", Type:"Halavit"};
-    var collection = db.collection('restaurants');
-    //collection.insert(car);
-    collection.find().toArray(function(err, items) {dbitems = JSON.stringify(items);});
-
 });
 
 app.set('port', (process.env.PORT || 5000));
@@ -33,7 +25,7 @@ app
     })
 
     .get('/dbstat', function(request, response) {
-        response.write("<html><body>" + dbstat +"<br><br>" + dbitems + "</body></html>");
+        response.write(dbstat);
         response.end();
     })
 
@@ -50,6 +42,19 @@ app
             collection.insert(item);
         });
         response.write("added");
+        response.end();
+    })
+
+    .get('/restaurants',function(request, response) {
+        var restaurants = "";
+        MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
+            if (err) {
+                return console.dir(err);
+            }
+            var collection = db.collection('restaurants');
+            collection.find().toArray(function(err, items) {restaurants = JSON.stringify(items);});
+        });
+        response.write(restaurants);
         response.end();
     })
 
