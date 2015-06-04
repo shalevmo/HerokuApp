@@ -60,8 +60,9 @@ app
             if (err) {
                 return console.dir(err);
             }
-            var collection = db.collection('restaurants');
-            collection.remove( {"_id": ObjectId(gid)});
+            //var collection = db.collection('restaurants');
+            //collection.remove( {"_id": ObjectId(gid)});
+            db.restaurants.remove({"_id": ObjectId("\"" + gid + "\"")});
         });
         response.redirect("/?removed=true");
         response.end();
