@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="StarterApp">
 <head>
     <link rel="stylesheet" type="text/css" href="design.css">
 
@@ -31,8 +31,16 @@
             console.log(xmlHttp.responseText);
         }
 
-        angular
-                .module('inputBasicDemo', ['ngMaterial', 'ngMessages'])
+        var app = angular.module('StarterApp', ['ngMaterial']);
+
+        app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+            $scope.toggleSidenav = function(menuId) {
+                $mdSidenav(menuId).toggle();
+            };
+
+        }]);
+
+        angular.module('inputBasicDemo', ['ngMaterial', 'ngMessages'])
                 .controller('DemoCtrl', function($scope) {
                     $scope.user = {
                         title: 'Developer',
