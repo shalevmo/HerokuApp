@@ -48,10 +48,9 @@ app
             var collection = db.collection('restaurants');
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
+            response.redirect("/add-item?added=true");
+            response.end();
         });
-        response.redirect("/add-item?added=true");
-        response.end();
-
     })
 
     .get('/remove', function(request, response) {
@@ -61,10 +60,8 @@ app
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
-            //console.dir("shalevshalev " + gid);
             collection.remove({_id: new mongodb.ObjectID(gid)});
             response.write(gid);
-            //response.redirect("/?removed=true");
             response.end();
         });
     })
@@ -76,9 +73,9 @@ app
             }
             var collection = db.collection('restaurants');
             collection.find().toArray(function(err, items) {restaurants = JSON.stringify(items);});
+            response.write(restaurants);
+            response.end();
         });
-        response.write(restaurants);
-        response.end();
     });
 
 app.listen(app.get('port'), function() {
