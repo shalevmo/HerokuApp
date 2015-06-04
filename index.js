@@ -49,7 +49,7 @@ app
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
         });
-        response.redirect("/add-item?added=" + encodeURIComponent(gname));
+        response.redirect("/add-item?added=true");
         response.end();
 
     })
