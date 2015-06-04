@@ -1,0 +1,61 @@
+/* Reset body padding and margins */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #CFD8DC;
+}
+
+/* Make Header Sticky */
+#header_container {
+    background: #607D8B;
+    height: 60px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#header {
+    line-height: 60px;
+    margin: 0 auto;
+    width: 940px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 36px;
+    color: white;
+}
+
+/* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
+#container {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 80px 0;
+    width: 940px;
+}
+
+#content {
+    font-family: monospace;
+    color: black;
+}
+
+/* Make Footer Sticky */
+#footer_container {
+    background: #607D8B;
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+}
+
+#footer {
+    line-height: 60px;
+    margin: 0 auto;
+    width: 940px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
