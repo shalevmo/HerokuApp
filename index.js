@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-// Retrieve
-var MongoClient = require('mongodb').MongoClient;
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
 var dbstat = "error";
 var restaurants = "";
 
@@ -62,7 +62,7 @@ app
             }
             var collection = db.collection('restaurants');
             console.log(gid);
-            //collection.remove({_id: new mongodb.ObjectID(gid)});
+            collection.remove({_id: new mongodb.ObjectID(gid)});
         });
         response.redirect("/?removed=true");
         response.end();
