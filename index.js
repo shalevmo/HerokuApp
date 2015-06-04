@@ -61,7 +61,7 @@ app
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
-            collection.remove( {"_id": ObjectId(gid)});
+            collection.remove({_id: new mongodb.ObjectID(gid)});
         });
         response.redirect("/?removed=true");
         response.end();
