@@ -10,6 +10,7 @@
                     a[b[0]] = b[1];
                     return a;
                 }, {});
+
         function httpGet(theUrl, callback)
         {
             var xmlHttp = new XMLHttpRequest();
@@ -17,6 +18,17 @@
             xmlHttp.send( null );
             console.log(xmlHttp.responseText);
             callback(xmlHttp.responseText);
+        }
+
+        function makeHttpObject() {
+            try {return new XMLHttpRequest();}
+            catch (error) {}
+            try {return new ActiveXObject("Msxml2.XMLHTTP");}
+            catch (error) {}
+            try {return new ActiveXObject("Microsoft.XMLHTTP");}
+            catch (error) {}
+
+            throw new Error("Could not create HTTP request object.");
         }
     </script>
 </head>
