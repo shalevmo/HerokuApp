@@ -48,8 +48,8 @@ app
             var collection = db.collection('restaurants');
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
-            response.write("added");//
         });
+        response.write("added");
         response.end();
     })
 
