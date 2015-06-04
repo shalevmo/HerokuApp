@@ -50,7 +50,10 @@
             <input type="submit" value="Submit">
         </form>
         <script>
-            document.write(options.added + " successfully added");
+            var added = options.added;
+            if (added != undefined) {
+                document.write(options.added + " successfully added");
+            }
         </script>
     </div>
 </div>
