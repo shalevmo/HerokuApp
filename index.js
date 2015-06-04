@@ -17,7 +17,7 @@ MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaur
     var car = {name:"Shelis", location:"Netivot", Type:"Halavit"};
     var collection = db.collection('restaurants');
     collection.insert(car);
-    collection.find().toArray(function(err, items) {dbitems = items;});
+    collection.find().toArray(function(err, items) {dbitems = JSON.stringify(items);});
 
 });
 
