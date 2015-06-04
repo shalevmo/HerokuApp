@@ -4,6 +4,7 @@ var fs = require('fs');
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
 var dbstat = "error";
+var restaurants = "";
 
 // Connect to the db
 MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
@@ -46,7 +47,6 @@ app
     })
 
     .get('/restaurants',function(request, response) {
-        var restaurants = "";
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
                 return console.dir(err);
