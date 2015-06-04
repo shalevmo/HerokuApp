@@ -27,7 +27,14 @@ body {
 }
 
 a {
+    color: inherit;
+}
+
+a:hover
+{
+    color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
