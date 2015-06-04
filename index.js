@@ -60,7 +60,7 @@ app
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
-            collection.remove({_id: new mongodb.ObjectID(gid)});
+            //collection.remove({_id: new mongodb.ObjectID(gid)});
             response.write(gid);
             response.end();
         });
