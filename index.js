@@ -72,9 +72,11 @@ app
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
-            collection.find().toArray(function(err, items) {restaurants = JSON.stringify(items);});
-            response.write(restaurants);
-            response.end();
+            collection.find().toArray(function(err, items) {
+                restaurants = JSON.stringify(items);
+                response.write(restaurants);
+                response.end();
+            });
         });
     });
 
