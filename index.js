@@ -49,8 +49,9 @@ app
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
         });
-        response.write("added");
+        response.redirect("/add-item");
         response.end();
+
     })
 
     .get('/restaurants',function(request, response) {
