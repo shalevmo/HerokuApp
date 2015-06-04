@@ -55,15 +55,13 @@ app
     })
 
     .get('/remove', function(request, response) {
-        var gname = request.param("name");
-        var glocation = request.param("location");
-        var gtype = request.param("type");
+        var gid = request.param("id");
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
-            collection.remove({name:gname, location:glocation, type:gtype});
+            collection.remove({id:gid});
         });
         response.redirect("/?removed=true");
         response.end();
