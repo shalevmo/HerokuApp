@@ -20,7 +20,7 @@ body {
     margin: 0 auto;
     width: 940px;
     text-align: center;
-    font-family: monospace;
+    //font-family: monospace;
     font-weight: bold;
     font-size: 36px;
     color: white;
@@ -47,7 +47,7 @@ a:hover
 }
 
 #content {
-    font-family: monospace;
+    //font-family: monospace;
     color: black;
 }
 .list-item {
@@ -72,7 +72,7 @@ a:hover
     margin: 0 auto;
     width: 940px;
     text-align: center;
-    font-family: monospace;
+    //font-family: monospace;
     font-weight: bold;
     font-size: 20px;
     color: white;
