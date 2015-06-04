@@ -10,6 +10,13 @@
                     a[b[0]] = b[1];
                     return a;
                 }, {});
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false );
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
     </script>
 </head>
 <body>
@@ -27,7 +34,9 @@
         <img src="Koala.jpg" width="300px" height="220px">
         <br><br>
         <script>
-
+            httpGet("/restaurants", function(response) {
+                write(response);
+            });
         </script>
 <!--        <img src="./Koala.jpg">
         <img src="./public/Koala.jpg">-->
