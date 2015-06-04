@@ -41,10 +41,11 @@
 </div>
 
 <div id="container">
-    <div id="content">
-        This is a koala bear.
+    <div id="content" dir="rtl">
         <br><br>
+<!--
         <img src="Koala.jpg" width="300px" height="220px">
+-->
         <br><br>
         <script>
             var restaurants = "";
@@ -53,10 +54,11 @@
                 restaurants = JSON.parse(response);
             });
             restaurants.forEach(function(entry) {
-                document.write("<li><h2>" + entry.name + "</h2>");
+                document.write("<hr><h2>" + entry.name + "</h2>");
                 document.write("<h2>" + entry.location + "</h2>");
-                document.write("<h2>" + entry.type + "</h2></li>");
+                document.write("<h2>" + entry.type + "</h2>");
             });
+            document.write("<hr>");
 
         </script>
 <!--        <img src="./Koala.jpg">
