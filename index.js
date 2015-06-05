@@ -54,14 +54,15 @@ app
     })
 
     .get('/remove', function(request, response) {
-        var gid = request.param("id");
+        var gid = request.params.id;
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
                 return console.dir(err);
             }
-            var collection = db.collection('restaurants');
-            collection.remove({_id: new mongodb.ObjectID(gid)});
-            response.redirect("/");
+            //var collection = db.collection('restaurants');
+            //collection.remove({_id: new mongodb.ObjectID(gid)});
+            //response.redirect("/");
+            response.write(gid);
             response.end();
         });
     })
