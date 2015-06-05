@@ -1,70 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="design.css">
-    <script>
-        var options = decodeURIComponent(window.location.search.slice(1))
-                .split('&')
-                .reduce(function _reduce (/*Object*/ a, /*String*/ b) {
-                    b = b.split('=');
-                    a[b[0]] = b[1];
-                    return a;
-                }, {});
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>מסעדות</title>
 
-        function httpGet(theUrl, callback)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange=function()
-            {
-                if (xmlHttp.readyState==4 && xmlHttp.status==200)
-                {
-                    callback(xmlHttp.responseText);
-                }
-            };
-            xmlHttp.open( "GET", theUrl, true );
-            xmlHttp.send( null );
-            console.log(xmlHttp.responseText);
-        }
-    </script>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+    <!--
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    -->
 </head>
 <body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container" style="text-align:right; padding-right: 110px"><a id="logo-container" href="#" class="brand-logo">מסעדות</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a hidden="true" href="#">Navbar Link</a></li>
+        </ul>
 
-<div id="header_container">
-    <div id="header">
-        <a href="/">
-            My Website
-        </a>
+        <ul id="nav-mobile" class="side-nav">
+            <li><a hidden="true" href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+</nav>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <!--      <br><br>
+              <h1 class="header center orange-text">מסעדות</h1>-->
+        <div class="row">
+            <form class="col s12" action="add" method="GET">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="location" type="text" class="validate">
+                        <label for="location">Location</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="type" type="text" class="validate">
+                        <label for="type">Type</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+        <div class="row center">
+            <a href="/add-item" id="download-button" class="btn-large waves-effect waves-light orange">Add Restaurant</a>
+        </div>
+        <br><br>
+
     </div>
 </div>
 
-<div id="container">
-    <div id="content" dir="rtl">
-        <form action="add" method="GET">
-            <label for="name">Restaurant name:</label><br>
-            <input type="text" name="name" value="" id="name">
-            <br>
-            <label for="location">Location:</label><br>
-            <input type="text" name="location" value="" id="location">
-            <br>
-            <label for="type">Type:</label><br>
-            <input type="text" name="type" value="" id="type">
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-        <script>
-            var added = options.added;
-            if (added != undefined) {
-                document.write("נוסף בהצלחה!");
-            }
-        </script>
+
+<div class="container" hidden="true">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="mdi-image-flash-on"></i></h2>
+                    <h5 class="center">Speeds up development</h5>
+
+                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="mdi-social-group"></i></h2>
+                    <h5 class="center">User Experience Focused</h5>
+
+                    <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="mdi-action-settings"></i></h2>
+                    <h5 class="center">Easy to work with</h5>
+
+                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
     </div>
 </div>
 
-<div id="footer_container">
-    <div id="footer">
-        (C) Built By Shalev Moyal
+<footer class="page-footer orange" hidden="true">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Company Bio</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Settings</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+<script>
+    (function($){
+        $(function(){
+
+            $('.button-collapse').sideNav();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+</script>
+<!--
+  <script src="js/init.js"></script>
+-->
 
 </body>
 </html>
