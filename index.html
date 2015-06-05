@@ -30,6 +30,20 @@
       <h1 class="header center orange-text">Starter Template</h1>
       <div class="row center">
           <script>
+              function httpGet(theUrl, callback)
+              {
+                  var xmlHttp = new XMLHttpRequest();
+                  xmlHttp.onreadystatechange=function()
+                  {
+                      if (xmlHttp.readyState==4 && xmlHttp.status==200)
+                      {
+                          callback(xmlHttp.responseText);
+                      }
+                  };
+                  xmlHttp.open( "GET", theUrl, true );
+                  xmlHttp.send( null );
+                  console.log(xmlHttp.responseText);
+              }
               var restaurants = "";
               httpGet("/restaurants", function(response) {
                   console.log(response);
