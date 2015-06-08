@@ -28,13 +28,13 @@
 <nav class="orange lighten-1" role="navigation">
     <div class="nav-wrapper container" style="text-align:right; padding-right: 110px"><a id="logo-container" href="/"
                                                                                          class="brand-logo">מסעדות</a>
-        <ul class="right hide-on-med-and-down">
+<!--        <ul class="right hide-on-med-and-down">
             <li><a hidden="true" href="/">כל המסעדות</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
             <li><a hidden="true" href="/">כל המסעדות</a></li>
-        </ul>
+        </ul>-->
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"
                                                                            style="font-size: x-large; margin-left: -10px"></i></a>
     </div>
@@ -44,7 +44,7 @@
         <!--      <br><br>
               <h1 class="header center orange-text">מסעדות</h1>-->
         <div class="row" dir="rtl">
-            <form class="col s12" action="add" method="GET">
+            <form class="col s12" method="GET">
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="שם המסעדה" name="name" id="name" type="text" class="validate">
@@ -109,8 +109,7 @@
                 query_string[pair[0]] = pair[1];
                 // If second entry with this name
             } else if (typeof query_string[pair[0]] === "string") {
-                var arr = [query_string[pair[0]], pair[1]];
-                query_string[pair[0]] = arr;
+                query_string[pair[0]] = [query_string[pair[0]], pair[1]];
                 // If third or later entry with this name
             } else {
                 query_string[pair[0]].push(pair[1]);
@@ -142,9 +141,6 @@
     }
 
 </script>
-<!--
-  <script src="js/init.js"></script>
--->
 
 </body>
 </html>
