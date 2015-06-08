@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="row-center">
-                    <button class="btn-large waves-effect waves-light orange" type="submit" name="action">הוסף
+                    <button class="btn-large waves-effect waves-light orange" onclick="myFunc()" type="button" name="action">הוסף
                         <i class="mdi-content-send left" style='-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);filter: FlipH;-ms-filter: "FlipH";'></i>
                     </button>
                 </div>
@@ -115,6 +115,24 @@
     if(QueryString.added != undefined) {
         Materialize.toast('נוסף בהצלחה', 3000);
     }
+
+   var myFunc = $.ajax({
+        url: "add",
+        data: {
+            "name": document.getElementById("name").value,
+            "type": document.getElementById("type").value,
+            "location": document.getElementById("location").value
+        },
+        cache: false,
+        type: "GET",
+        success: function(response) {
+            alert(response);
+        },
+        error: function(xhr) {
+
+        }
+    });
+
 </script>
 <!--
   <script src="js/init.js"></script>
