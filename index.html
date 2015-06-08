@@ -77,25 +77,26 @@
 
           }); // end of document ready
       })(jQuery); // end of jQuery name space
+
+      var removeItem = function (id) {
+          $.ajax({
+              url: "remove",
+              data: {
+                  "id": id
+              },
+              cache: false,
+              type: "GET",
+              success: function (response) {
+                  alert(response);
+                  //Materialize.toast(response, 3000);
+              },
+              error: function (xhr) {
+
+              }
+          });
+      }
+
   </script>
-
-  var removeItem = function (id) {
-  $.ajax({
-  url: "remove",
-  data: {
-  "id": id
-  },
-  cache: false,
-  type: "GET",
-  success: function (response) {
-  alert(response);
-  //Materialize.toast(response, 3000);
-  },
-  error: function (xhr) {
-
-  }
-  });
-  }
 <!--
   <script src="js/init.js"></script>
 -->
