@@ -43,12 +43,15 @@ app
         var gtype = request.param("type");
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
+                response.write("Error");
+                response.end();
                 return console.dir(err);
             }
             var collection = db.collection('restaurants');
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
-            response.redirect("/add-item?added=true");
+            //response.redirect("/add-item?added=true");
+            response.write("Added Successfully");
             response.end();
         });
     })
