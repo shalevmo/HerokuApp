@@ -3,16 +3,7 @@ var app = express();
 var fs = require('fs');
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-var dbstat = "error";
 var restaurants = "";
-
-// Connect to the db
-MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
-    if(err) {
-        return console.dir(err);
-    }
-    dbstat = "connected";
-});
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -20,18 +11,6 @@ app.use(express.static(__dirname + '/public'));
 app
     .get('/', function(request, response) {
         fs.readFile('./index.html', function(err, contents) {
-            response.write(contents);
-            response.end();
-        });
-    })
-
-    .get('/dbstat', function(request, response) {
-        response.write(dbstat);
-        response.end();
-    })
-
-    .get('/add-item', function(request, response) {
-        fs.readFile('./add-item.html', function(err, contents) {
             response.write(contents);
             response.end();
         });
