@@ -43,7 +43,7 @@ app
         var gtype = request.param("type");
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
-                response.write("Error");
+                response.write("שגיאה");
                 response.end();
                 return console.dir(err);
             }
@@ -51,7 +51,7 @@ app
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
             //response.redirect("/add-item?added=true");
-            response.write("Added Successfully");
+            response.write("נוסף בהצלחה");
             response.end();
         });
     })
@@ -64,8 +64,11 @@ app
             }
             var collection = db.collection('restaurants');
             collection.remove({_id: new mongodb.ObjectID(gid)});
-            response.redirect("/");
-            response.end();
+            collection.find().toArray(function(err, items) {
+                restaurants = JSON.stringify(items);
+                response.write(restaurants);
+                response.end();
+            });
         });
     })
 

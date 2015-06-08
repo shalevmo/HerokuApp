@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row-center">
-                    <button class="btn-large waves-effect waves-light orange" onclick="myFunc()" type="button"
+                    <button class="btn-large waves-effect waves-light orange" onclick="addItem()" type="button"
                             name="action">הוסף
                         <i class="mdi-content-send left"
                            style='-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);filter: FlipH;-ms-filter: "FlipH";'></i>
@@ -122,7 +122,7 @@
         Materialize.toast('נוסף בהצלחה', 3000);
     }
 
-    var myFunc = function () {
+    var addItem = function () {
         $.ajax({
             url: "add",
             data: {
