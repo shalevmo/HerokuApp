@@ -12,8 +12,10 @@
             url: "shalev",
             data: {
             },
-            cache: false,
             type: "GET",
+            async: false,
+            cache: false,
+            timeout: 30000,
             success: function (response) {
                 console.log(response);
                 var parser = new DOMParser()
