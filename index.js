@@ -31,8 +31,7 @@ app
             var item = {name:gname, location:glocation, type:gtype};
             collection.insert(item);
             //response.redirect("/add-item?added=true");
-            response.write("נוסף בהצלחה");
-            response.end();
+            response.send("נוסף בהצלחה");
         });
     })
 
@@ -74,8 +73,7 @@ app
         };
 
         http.request(options, callback).end();*/
-        response.write("shalev");
-        response.end();
+        response.send("shalev");
     })
 
     .get('/restaurants',function(request, response) {
