@@ -53,7 +53,7 @@ app
     })
 
     .get('/sdarot', function(request, response) {
-        var options = {
+ /*       var options = {
             host: 'www.sdarot.pm',
             path: '/series'
         };
@@ -73,7 +73,9 @@ app
             });
         };
 
-        http.request(options, callback).end();
+        http.request(options, callback).end();*/
+        response.write("shalev");
+        response.end();
     })
 
     .get('/restaurants',function(request, response) {
