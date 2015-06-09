@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var app = express();
 var fs = require('fs');
 var mongodb = require('mongodb');
@@ -52,24 +53,27 @@ app
     })
 
     .get('/sdarot', function(request, response) {
-        function httpGet(theUrl, callback)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange=function()
-            {
-                if (xmlHttp.readyState==4 && xmlHttp.status==200)
-                {
-                    callback(xmlHttp.responseText);
-                }
-            };
-            xmlHttp.open( "GET", theUrl, true );
-            xmlHttp.send( null );
-            console.log(xmlHttp.responseText);
-        }
-        httpGet("http://www.sdarot.pm/series", function(res) {
-            response.write(res);
-            response.end();
-        });
+        var options = {
+            host: 'www.random.org',
+            path: '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+        };
+
+        callback = function(res) {
+            var str = '';
+
+            //another chunk of data has been recieved, so append it to `str`
+            res.on('data', function (chunk) {
+                str += chunk;
+            });
+
+            //the whole response has been recieved, so we just print it out here
+            res.on('end', function () {
+                response.write(str);
+                response.end();
+            });
+        };
+
+        http.request(options, callback).end();
     })
 
     .get('/restaurants',function(request, response) {
