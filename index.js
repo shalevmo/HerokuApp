@@ -51,6 +51,27 @@ app
         });
     })
 
+    .get('/sdarot', function(request, response) {
+        function httpGet(theUrl, callback)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange=function()
+            {
+                if (xmlHttp.readyState==4 && xmlHttp.status==200)
+                {
+                    callback(xmlHttp.responseText);
+                }
+            };
+            xmlHttp.open( "GET", theUrl, true );
+            xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
+        }
+        httpGet("http://www.sdarot.pm/series", function(res) {
+            response.write(res);
+            response.end();
+        });
+    })
+
     .get('/restaurants',function(request, response) {
         MongoClient.connect("mongodb://dbuser:123456@ds043082.mongolab.com:43082/restaurants", function(err, db) {
             if (err) {
