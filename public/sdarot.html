@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sdarot</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<script>
+    var addItem = function () {
+        $.ajax({
+            url: "shalev",
+            data: {
+            },
+            cache: false,
+            type: "GET",
+            success: function (response) {
+                var list = response.getElementsByClassName("category_box");
+                list.forEach(function(series){
+                    var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
+                    document.getElementsByTagName("body").innerHTML += JSON.stringify(obj);
+                });
+            },
+            error: function (xhr) {
+
+            }
+        });
+    }
+</script>
+</body>
+</html>
