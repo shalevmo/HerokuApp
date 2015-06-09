@@ -17,13 +17,12 @@
             cache: false,
             timeout: 30000,
             success: function (response) {
-                console.log(response);
                 var parser = new DOMParser()
                         , doc = parser.parseFromString(response, "text/html");
                 var list = doc.getElementsByClassName("category_box");
                 list.forEach(function(series){
                     var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
-                    document.getElementsByTagName("body").innerHTML += JSON.stringify(obj);
+                    document.write(obj);
                 });
             },
             error: function (xhr) {
