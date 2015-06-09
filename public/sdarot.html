@@ -7,29 +7,26 @@
 </head>
 <body>
 <script>
-    var addItem = function () {
-        $.ajax({
-            url: "shalev",
-            data: {
-            },
-            cache: false,
-            type: "GET",
-            success: function (response) {
-                console.log(response);
+    $.ajax({
+        url: "shalev",
+        data: {
+        },
+        cache: false,
+        type: "GET",
+        success: function (response) {
+            console.log(response);
 /*                var parser = new DOMParser()
-                        , doc = parser.parseFromString(response, "text/html");
-                var list = doc.getElementsByClassName("category_box");
-                list.forEach(function(series){
-                    var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
-                    document.getElementsByTagName("body").innerHTML += JSON.stringify(obj);
-                });*/
-            },
-            error: function (xhr) {
+                    , doc = parser.parseFromString(response, "text/html");
+            var list = doc.getElementsByClassName("category_box");
+            list.forEach(function(series){
+                var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
+                document.getElementsByTagName("body").innerHTML += JSON.stringify(obj);
+            });*/
+        },
+        error: function (xhr) {
 
-            }
-        });
-    };
-    addItem();
+        }
+    });
 </script>
 </body>
 </html>
