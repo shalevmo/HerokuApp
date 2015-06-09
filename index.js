@@ -67,7 +67,8 @@ app
 
             //the whole response has been recieved, so we just print it out here
             res.on('end', function () {
-                response.send(str);
+                response.write(str);
+                response.end();
             });
         };
 
