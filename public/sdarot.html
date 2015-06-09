@@ -15,7 +15,9 @@
             cache: false,
             type: "GET",
             success: function (response) {
-                var list = response.getElementsByClassName("category_box");
+                var parser = new DOMParser()
+                        , doc = parser.parseFromString(response, "text/html");
+                var list = doc.getElementsByClassName("category_box");
                 list.forEach(function(series){
                     var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
                     document.getElementsByTagName("body").innerHTML += JSON.stringify(obj);
@@ -25,7 +27,8 @@
 
             }
         });
-    }
+    };
+    addItem();
 </script>
 </body>
 </html>
