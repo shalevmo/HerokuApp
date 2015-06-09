@@ -52,7 +52,7 @@ app
     })
 
     .get('/shalev', function(request, response) {
- /*       var options = {
+        var options = {
             host: 'www.sdarot.pm',
             path: '/series'
         };
@@ -67,13 +67,11 @@ app
 
             //the whole response has been recieved, so we just print it out here
             res.on('end', function () {
-                response.write(str);
-                response.end();
+                response.send(str);
             });
         };
 
-        http.request(options, callback).end();*/
-        response.send("shalev");
+        http.request(options, callback).end();
     })
 
     .get('/restaurants',function(request, response) {
