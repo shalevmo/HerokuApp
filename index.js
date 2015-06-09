@@ -54,8 +54,8 @@ app
 
     .get('/sdarot', function(request, response) {
         var options = {
-            host: 'www.random.org',
-            path: '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+            host: 'www.sdarot.pm',
+            path: '/series'
         };
 
         callback = function(res) {
