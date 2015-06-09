@@ -72,7 +72,7 @@ app
                     var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
                     response.write(JSON.stringify(obj));
                 });
-                response.send(str);
+                response.end();
             });
         };
 
