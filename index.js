@@ -67,14 +67,7 @@ app
 
             //the whole response has been recieved, so we just print it out here
             res.on('end', function () {
-                var parser = new DOMParser()
-                    , doc = parser.parseFromString(str, "text/xml");
-                var list = doc.getElementsByClassName("category_box");
-                list.forEach(function(series){
-                    var obj = {Name:series.getElementsByClassName("lazy")[0].alt, Link:series.getElementsByTagName("a")[0].href, Image:series.getElementsByClassName("lazy")[0].src};
-                    response.write(JSON.stringify(obj));
-                });
-                response.end();
+                response.send(str);
             });
         };
 
