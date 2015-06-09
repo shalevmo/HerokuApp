@@ -15,6 +15,7 @@
             cache: false,
             type: "GET",
             success: function (response) {
+                console.log(response);
                 var parser = new DOMParser()
                         , doc = parser.parseFromString(response, "text/html");
                 var list = doc.getElementsByClassName("category_box");
